@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = ".;proto";
+package helloworld;
+
+service Helloworld {
+  rpc GetData (ReqData) returns (RepData){}
+  rpc GetStream (ReqData) returns (stream RepData){}
+  rpc SetStream (stream ReqData) returns (RepData){}
+  rpc AllStream (stream ReqData) returns (stream RepData){}
+}
+
+message ReqData {
+  string name = 1;
+}
+
+message RepData {
+  string reply = 1;
+}
